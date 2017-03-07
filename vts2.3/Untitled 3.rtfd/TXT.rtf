@@ -1,0 +1,168 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red139\green255\blue135;\red161\green175\blue193;\red234\green234\blue234;
+\red208\green232\blue247;\red0\green0\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww20260\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs18 \cf0 \CocoaLigature0 Packet 13\
+\
+13:18:55:354752: dpdk-input\
+  VirtualEthernet0/0/5 rx queue 0\
+  buffer 0x3f81e32c: current data 0, length 332, free-list 0, totlen-nifb 0, trace 0xc\
+  PKT MBUF: port 255, nb_segs 1, pkt_len 332\
+    buf_len 2176, data_len 332, ol_flags 0x0,\
+    packet_type 0x0\
+  IP4: fa:16:3e:b3:36:cb -> ff:ff:ff:ff:ff:ff\
+  UDP: 0.0.0.0 -> 255.255.255.255\
+    tos 0x00, ttl 64, length 318, checksum 0x79b0\
+    fragment id 0x0000\
+  UDP: 68 -> 67\
+    length 298, checksum 0x9df1\
+13:18:55:354757: ethernet-input\
+  IP4: fa:16:3e:b3:36:cb -> ff:ff:ff:ff:ff:ff\
+13:18:55:354762: l2-input\
+  l2-input: sw_if_index 25 dst ff:ff:ff:ff:ff:ff src fa:16:3e:b3:36:cb\
+13:18:55:354765: l2-flood\
+  l2-flood: sw_if_index 25 dst ff:ff:ff:ff:ff:ff src fa:16:3e:b3:36:cb bd_index 1\
+13:18:55:354769: l2-output\
+  l2-output: sw_if_index 15 dst ff:ff:ff:ff:ff:ff src fa:16:3e:b3:36:cb\
+13:18:55:354774: error-drop\
+  ethernet-input: no error\
+13:18:55:354777: l2-flood\
+  l2-flood: sw_if_index 25 dst ff:ff:ff:ff:ff:ff src fa:16:3e:b3:36:cb bd_index 1\
+13:18:55:354780: l2-output\
+  l2-output: sw_if_index 21 dst ff:ff:ff:ff:ff:ff src fa:16:3e:b3:36:cb\
+13:18:55:354780: error-drop\
+  ethernet-input: no error\
+13:18:55:354781: l2-flood\
+  l2-flood: sw_if_index 25 dst 45:00:01:3e:00:00 src 00:00:40:11:79:b0 bd_index 1\
+13:18:55:354781: ip4-input\
+  UDP: 0.0.0.0 -> 255.255.255.255\
+    tos 0x00, ttl 64, length 318, checksum 0x79b0\
+    fragment id 0x0000\
+  UDP: 68 -> 67\
+    length 298, checksum 0x9df1\
+13:18:55:354785: ip4-rewrite-transit\
+  fib 0 adj-idx 6 : BondEthernet0\
+                    IP4: 00:78:88:f0:37:e3 -> 00:00:0c:9f:f8:b0 shared 3 flow hash: 0x00000000\
+  IP4: 00:78:88:f0:37:e3 -> 00:00:0c:9f:f8:b0\
+  UDP: 0.0.0.0 -> 255.255.255.255\
+    tos 0x00, ttl 63, length 318, checksum 0x7ab0\
+    fragment id 0x0000\
+  UDP: 68 -> 67\
+    length 298, checksum 0x9df1\
+13:18:55:354787: BondEthernet0-output\
+  BondEthernet0\
+  IP4: 00:78:88:f0:37:e3 -> 00:00:0c:9f:f8:b0\
+  UDP: 0.0.0.0 -> 255.255.255.255\
+    tos 0x00, ttl 63, length 318, checksum 0x7ab0\
+    fragment id 0x0000\
+  UDP: 68 -> 67\
+    length 298, checksum 0x9df1\
+13:18:55:354798: BondEthernet0-tx\
+  BondEthernet0 tx queue 1\
+  buffer 0x3f81e32c: current data 0, length 332, free-list 0, totlen-nifb 0, trace 0xc\
+  IP4: 00:78:88:f0:37:e3 -> 00:00:0c:9f:f8:b0\
+  UDP: 0.0.0.0 -> 255.255.255.255\
+    tos 0x00, ttl 63, length 318, checksum 0x7ab0\
+    fragment id 0x0000\
+  UDP: 68 -> 67\
+    length 298, checksum 0x9df1\
+\
+\
+\
+\
+\
+\
+\
+pp# sh version verbose\
+Version:                  v16.06-rc1~27-gd175728~b266\
+Compiled by:              jenkins\
+Compile host:             vpp-build\
+Compile date:             Tue Sep 13 23:12:25 EDT 2016\
+Compile location:         /scratch/nightly-builds/latest/open-vpp\
+Compiler:                 GCC 4.8.2\
+CPU model name:           Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz\
+CPU microarchitecture:    Haswell (Haswell-E)\
+Current PID:              90\
+DPDK Version:             DPDK 16.04.0\
+DPDK EAL init args:       -c 3 -n 4 --vdev eth_bond0,mode=2,slave=0000:0d:00.0,slave=0000:0e:00.0,xmit_policy=l34,lsc_poll_period_ms=100 --huge-dir /run/vpp/hugepages --file-prefix vpp -w 0000:0d:00.0 -w 0000:0e:00.0 --master-lcore 0 --socket-mem 510,510 \
+vpp# sh trahd\
+show: unknown input `trahd'\
+vpp# sh thread\
+ID     Name                Type        LWP     lcore  Core   Socket State     \
+0      vpp_main                        90      0      0      0      wait\
+1      vpp_wk_0            workers     98      1      1      0      running\
+2                          stats       99      \
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\ri380\partightenfactor0
+
+\fs28 \cf0 \CocoaLigature1 \
+\pard\pardeftab720\sl420\partightenfactor0
+
+\fs36 \cf0 \expnd0\expndtw0\kerning0
+US9287 Functionality/Scale/Performance/Solution Testing for L3/DHCP and Metadata Feature on VTS
+\fs28 \kerning1\expnd0\expndtw0 \
+\pard\pardeftab720\ri380\partightenfactor0
+\cf0 \
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalt \clcbpat2 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx1728
+\clmgf \clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadl48 \clpadr48 \gaph\cellx3456
+\clmrg \clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadl48 \clpadr48 \gaph\cellx5184
+\clmrg \clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadl48 \clpadr48 \gaph\cellx6912
+\clmrg \clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadl48 \clpadr48 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \expnd0\expndtw0\kerning0
+- name: Synchronizing ucsd setupdata\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "javascript:;"}}{\fldrslt \cf0 51}}\cell 
+\pard\intbl\itap1\cell 
+\pard\intbl\itap1\cell 
+\pard\intbl\itap1\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth240\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx1728
+\clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrnil \clpadl48 \clpadr48 \gaph\cellx3456
+\clvertalt \clcbpat4 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf4 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx5184
+\clvertalt \clcbpat2 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx6912
+\clvertalt \clcbpat1 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf1 \clbrdrr\brdrs\brdrw20\brdrcf4 \clpadl48 \clpadr48 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0       synchronize: src="/root/ucsd-configs/ucsd_setup_data.yaml" dest="\{\{ backupdir \}\}/\{\{ workspace.\
+stdout \}\}/tools/ucsd/" compress=no perms=yes rsync_opts="--xattrs"\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "javascript:;"}}{\fldrslt \cf0 52}}\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrb\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clcbpat5 \clwWidth240\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf6 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx1728
+\clvertalt \clcbpat5 \clwWidth304\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw20\brdrcf6 \clbrdrr\brdrnil \clpadl48 \clpadr48 \gaph\cellx3456
+\clvertalt \clcbpat4 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf6 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx5184
+\clmgf \clvertalt \clcbpat2 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf6 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx6912
+\clmrg \clvertalt \clcbpat2 \clwWidth14420\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf6 \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 {{\NeXTGraphic unknown.gif \width240 \height180 \noorient
+}¬}\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0       when: ucsd is defined and ucsd.stat.exists\cell 
+\pard\intbl\itap1\cell \lastrow\row
+}

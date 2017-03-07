@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red180\green36\blue25;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21240\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 \CocoaLigature0 \
+\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -create m1.tiny 1 512 0 1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.tiny set hw:numa_nodes=1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.tiny set hw:mem_page_size=large\
+\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -create m1.small 20 2048 0 1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.small set hw:numa_nodes=1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.small set hw:mem_page_size=large\
+\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -create m1.medium 40 4096 0 2\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.medium set hw:numa_nodes=1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.medium set hw:mem_page_size=large\
+\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -create m1.large 80 8192 0 4\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.large set hw:numa_nodes=1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.large set hw:mem_page_size=large\
+\
+\
+\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -create m1.large 80 16384 0 8\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.xlarge set hw:numa_nodes=1\
+nova 
+\f1\b \cf2 flavor
+\f0\b0 \cf0 -key m1.xlarge set hw:mem_page_size=large\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 if ! openstack flavor list | grep -q m1.tiny; then\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 openstack flavor create --id 1 --ram 512 --disk 1 --vcpus 1 m1.tiny\
+        
+\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 openstack flavor set m1.tiny --property  hw:mem_page_size=large\
+         openstack flavor set m1.tiny --property  hw:numa_nodes=1
+\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0 openstack flavor create --id 2 --ram 2048 --disk 20 --vcpus 1 m1.small\
+        
+\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 openstack flavor set m1.small --property  hw:mem_page_size=large\
+\pard\pardeftab720\partightenfactor0
+\cf0          openstack flavor set m1.small \'97property  hw:numa_nodes=1
+\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 openstack flavor create --id 3 --ram 4096 --disk 40 --vcpus 2 m1.medium\
+        
+\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 openstack flavor set m1.medium --property  hw:mem_page_size=large\
+\pard\pardeftab720\partightenfactor0
+\cf0          openstack flavor set m1.medium --property  hw:numa_nodes=1
+\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 openstack flavor create --id 4 --ram 8192 --disk 80 --vcpus 4 m1.large\
+\pard\pardeftab720\partightenfactor0
+\cf0         
+\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 openstack flavor set m1.large --property  hw:mem_page_size=large\
+         openstack flavor set m1.large --property  hw:numa_nodes=1
+\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 openstack flavor create --id 5 --ram 16384 --disk 160 --vcpus 8 m1.xlarge\
+        
+\fs22 \kerning1\expnd0\expndtw0 \CocoaLigature0 openstack flavor set m1.xlarge --property  hw:mem_page_size=large\
+\pard\pardeftab720\partightenfactor0
+\cf0          openstack flavor set m1.xlarge --property  hw:numa_nodes=1
+\fs24 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 fi}
